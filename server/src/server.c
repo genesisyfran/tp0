@@ -1,7 +1,7 @@
 #include "server.h"
 
 int main(void) {
-	logger = log_create("log.log", "Servidor", 1, LOG_LEVEL_DEBUG);
+	logger = log_create("servidor.log", "Servidor", 1, LOG_LEVEL_DEBUG);
 
 	int server_fd = iniciar_servidor();
 	log_info(logger, "Servidor listo para recibir al cliente");
@@ -16,7 +16,7 @@ int main(void) {
 			break;
 		case PAQUETE:
 			lista = recibir_paquete(cliente_fd);
-			log_info(logger, "Me llegaron los siguientes valores:\n");
+			log_info(logger, "Me llegaron los siguientes valores:");
 			list_iterate(lista, (void*) iterator);
 			break;
 		case -1:
